@@ -1,0 +1,111 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', 'Arial Black', Gadget, 'Nimbus Sans L', sans-serif;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 1.3;
+  color: white;
+  margin: 0;
+  min-height: 800px;
+  background: -webkit-radial-gradient(circle, #8FC1E6, #3A7BBA);
+  background: radial-gradient(circle, #8FC1E6, #3A7BBA);
+}
+
+.reveal {
+  color: white;
+}
+
+.container {
+  margin: 125px auto 0;
+  max-width: 960px;
+  padding: 0 60px;
+}
+
+.reveal h1 {
+  font-size: 58px;
+  margin: 0 0 75px 0;
+  line-height: 79px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: normal;
+  font-family: 'Open Sans', 'Arial Black', Gadget, 'Nimbus Sans L', sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.reveal ul {
+  margin: 0;
+  padding: 0;
+}
+
+.reveal ul li {
+  position: relative;
+  opacity: .6;
+  display: block;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: opacity .3s;
+}
+
+.reveal ul li:hover {
+  opacity: 1;
+  /*text-shadow: 1px 2px 1px #3A7BBA;*/
+}
+
+.reveal ul li:before {
+  position: absolute;
+  top: 50%;
+  left: -28px;
+  content: '';
+  display: block;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.done,
+.reveal ul li.fragment.fragment-current { opacity: 1; }
+
+.done { text-decoration: line-through; }
+
+.reveal ul li.fragment.fragment-current:before {
+  content: '';
+  height: 26px;
+  width: 16px;
+  left: -32px;
+  margin-top: -8px;
+  background: transparent url(/img/list-arrow.png) 0 0 no-repeat;
+  border-radius: 0;
+}
+
+.reveal ul li.fragment.fragment-current[hidden]:before {
+  display: none;
+}
+
+/*
+.reveal ul li.fragment.fragment-current {
+  color: white;
+  background: url(arrow-right.png) no-repeat left center;
+}
+*/
+
+.reveal ul ul li {
+  font-size: 80%;
+}
+
+.reveal section > img {
+  display: block;
+  margin: auto;
+}
+
+
+
+
+
