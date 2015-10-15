@@ -66,7 +66,14 @@ body {
   /*text-shadow: 1px 2px 1px #3A7BBA;*/
 }
 
-.reveal ul li:before {
+.reveal ul li a,
+.reveal ul li span {
+  position: relative;
+  display: inline-block;
+}
+
+.reveal ul li a:before,
+.reveal ul li span:before {
   position: absolute;
   top: 50%;
   left: -28px;
@@ -83,7 +90,8 @@ body {
 
 .done { text-decoration: line-through; }
 
-.reveal ul li.fragment.fragment-current:before {
+.reveal ul li.fragment.fragment-current > span:before,
+.reveal ul li.fragment.fragment-current > a:before {
   content: '';
   height: 26px;
   width: 16px;
@@ -93,7 +101,8 @@ body {
   border-radius: 0;
 }
 
-.reveal ul li.fragment.fragment-current[hidden]:before {
+.reveal ul li.fragment.fragment-current[hidden] span:before,
+.reveal ul li.fragment.fragment-current[hidden] a:before {
   display: none;
 }
 
