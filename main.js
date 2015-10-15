@@ -11,32 +11,30 @@ function init() {
     backgroundTransition: 'none',  
 
     // Optional libraries used to extend on reveal.js
-    dependencies: [
-
-      {
-        src: 'node_modules/reveal.js/plugin/markdown/marked.js',
+    dependencies: [{
+        src: '/node_modules/reveal.js/plugin/markdown/marked.js',
         condition: function() {
           return !!document.querySelector('[data-markdown]');
         }
       }, {
-        src: 'node_modules/reveal.js/plugin/markdown/markdown.js',
+        src: '/node_modules/reveal.js/plugin/markdown/markdown.js',
         condition: function() {
           return !!document.querySelector('[data-markdown]');
         }
       }, {
-        src: 'node_modules/reveal.js/plugin/highlight/highlight.js',
+        src: '/node_modules/reveal.js/plugin/highlight/highlight.js',
         async: true,
         callback: function() {
           hljs.initHighlightingOnLoad();
         }
       }, {
-        src: 'node_modules/reveal.js/plugin/zoom-js/zoom.js',
+        src: '/node_modules/reveal.js/plugin/zoom-js/zoom.js',
         async: true,
         condition: function() {
           return !!document.body.classList;
         }
       }, {
-        src: 'node_modules/reveal.js/plugin/notes/notes.js',
+        src: '/node_modules/reveal.js/plugin/notes/notes.js',
         async: true,
         condition: function() {
           return !!document.body.classList;
@@ -79,17 +77,21 @@ function setCurrentFragment(fragment) {
   }
 }
 
-init();
-
-/*
 var path = document.location.pathname + "index.html";
-$.get(path)
-  .success(function(content) {
+
+fetch(path)
+  .then(res => {
+    if (res.status != 200) {
+      throw new Error(`URL ${path} status ${res.status}`);
+    }
+    return res.text()
+  })
+  .then(content => {
     content = content.replace(/`(.*?)`/gim, '<code>$1</code>');
-    $('#main').html(content);
+    document.querySelector('#main').innerHTML = content;
     setTimeout(init, 0);
   })
-  .fail(function(err) {
+  .catch(function(err) {
     alert(err);
-  })*/
+  });
 
